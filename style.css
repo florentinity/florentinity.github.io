@@ -1,0 +1,189 @@
+* {
+	box-sizing: border-box;
+}
+
+html,body {
+	margin: 0;
+	width: 100%;
+	min-height: 100%;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	background-image: url('img/bg/bg169.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #006600;
+	overflow-x: hidden;
+}
+
+@media (max-aspect-ratio: 4/3) {
+	body {
+		background-image: url('img/bg/bg43.png');
+	}
+}
+
+@media (max-aspect-ratio: 9/16) {
+	body {
+		background-image: url('img/bg/bg916.png');
+	}
+}
+
+navBar {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1vh;
+
+	position: fixed;
+	top: 1vh;
+	left: 1vh;
+	width: calc(100% - 2vh);
+	min-height: 10vh;
+	padding: 1vh;
+
+	border-radius: 2vh;
+	backdrop-filter: blur(10vh);
+	-webkit-backdrop-filter: blur(10vh);
+
+	box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.1);
+	background: linear-gradient(
+		to bottom,
+		rgba(255, 255, 255, 0.75),
+		rgba(255, 255, 255, 0.25)
+	);
+
+	z-index: 2007;
+}
+
+:root {
+	--navbar-bottom: 12vh;
+}
+
+@media (max-width: 900px) {
+	:root {
+		--navbar-bottom: 21vh;
+	}
+}
+
+@media (max-width: 600px) {
+	:root {
+		--navbar-bottom: 17vh;
+	}
+}
+
+@media (max-width: 380px) {
+	:root {
+		--navbar-bottom: 30vh;
+	}
+}
+
+navBarButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	min-width: 0;
+	min-height: 8vh;
+	padding: 1vh;
+
+	background: linear-gradient(
+		to bottom,
+		rgba(183, 229, 251, 0.25),
+		rgba(119, 207, 247, 0.55)
+	);
+
+	font-size: clamp(1rem, 3vw, 3rem);
+	text-align: center;
+	line-height: 1.1;
+
+	border-radius: 2vh;
+
+	overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+	navBar {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	navBarButton {
+		font-size: clamp(1rem, 4vw, 2rem);
+	}
+}
+
+@media (max-width: 600px) {
+	navBar {
+		top: 1vh;
+		left: 1vh;
+		width: calc(100% - 2vh);
+
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.75vh;
+
+		padding: 0.75vh;
+		border-radius: 1.5vh;
+	}
+
+	navBarButton {
+		min-height: 7vh;
+		padding: 0.75vh;
+
+		font-size: clamp(0.9rem, 4.5vw, 1.5rem);
+		border-radius: 1.5vh;
+	}
+}
+
+/* Very narrow portrait screens */
+@media (max-width: 380px) {
+	navBar {
+		grid-template-columns: 1fr;
+	}
+
+	navBarButton {
+		min-height: 6vh;
+		font-size: clamp(0.85rem, 5vw, 1.25rem);
+	}
+}
+
+#florentinityInteractiveArea {
+	position: fixed;
+	left: 5vw;
+	bottom: 5vh;
+
+	width: min(50vh, 45vw);
+	height: min(50vh, 45vw);
+
+	z-index: 1;
+}
+
+#florentinityInteractiveArea > * {
+	width: 100% !important;
+	height: 100% !important;
+}
+
+/* Make the interactive area larger and better positioned in portrait */
+@media (orientation: portrait) {
+	#florentinityInteractiveArea {
+		left: 25%;
+		bottom: 5vh;
+
+		width: min(80vw, 60vh);
+		height: min(80vw, 60vh);
+
+		transform: translateX(-50%);
+	}
+}
+
+MainPart {
+	position: fixed;
+	border-radius: 1.5vh;
+	background-color: rgba(255,255,255,0.5);
+	left: 50%;
+	right: 1vh;
+	top: var(--navbar-bottom);
+	bottom: 1vh;
+	backdrop-filter: blur(10px);
+	font-size: 24px;
+	padding: 16px;
+}

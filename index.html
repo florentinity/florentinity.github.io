@@ -1,5 +1,54 @@
 <!DOCTYPE HTML>
-<html>
-  <h>This page is not ready yet, come back later</h>
-  <p>...You CAN, on the other hand access the <a href="https://florentinity-archive.taild315cf.ts.net:443">archive</a>, if you want to!</p>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+		>
+
+		<link rel="stylesheet" href="style.css">
+
+		<title>Florentinity's Page</title>
+
+		<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+	</head>
+
+	<body>
+		<navBar>
+			<navBarButton><a href="https://florentinity-archive.taild315cf.ts.net/">Archive</a></navBarButton>
+			<navBarButton><a href="https://florentinity.itch.io/">Itch.io</a></navBarButton>
+			<navBarButton><a href="https://gamejolt.com/@Florentinity">GameJolt</a></navBarButton>
+			<navBarButton><a href="https://ko-fi.com/florentinity">Ko-Fi page</a></navBarButton>
+		</navBar>
+
+		<div id="florentinityInteractiveArea"></div>
+
+		<script>
+			window.addEventListener("DOMContentLoaded", () => {
+				const ruffle = window.RufflePlayer.newest();
+				const player = ruffle.createPlayer();
+
+				const container = document.getElementById(
+					"florentinityInteractiveArea"
+				);
+
+				player.style.width = "100%";
+				player.style.height = "100%";
+
+				container.appendChild(player);
+
+				player.config = {
+					wmode: "transparent",
+					autoplay: "on",
+					unmuteOverlay: "hidden",
+					splashScreen: false
+				};
+
+				player.load("florentinityinteractive.swf");
+			});
+		</script>
+		
+		<MainPart>Hello and welcome to my page! My name is Florentinity (Spelt "Flo-ren-teen-eety", if that makes it easier, any nickname also works if that's still too complicated :P), and as of writing, i'm usually known as someone who codes in C, and plays a bunch of other games from time to time!<br><br>I've made a number of games in both my Gamejolt and Itch.io, most if not all of which i'm sill pretty proud of myself for making!<br>All of those games are available on any of the links above, if you're curious about any upcoming projects, the <a href="https://florentinity-archive.taild315cf.ts.net/">Archive</a> is the best place to look, as they contain playable snapshots of my current ongoing game projects<p style="font-size:12px">You should probably also check out that "Ko-Fi" link, while at it :P</p><br><br>As for this page, not much has been added, however i will make sure to add some more things here, which i'm very excited about :D<br><br>(You may also play with Furr on the left side here, assuming the swf file actually loaded; don't worry he won't mind)</MainPart>
+	</body>
 </html>
